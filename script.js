@@ -5,17 +5,14 @@ class Person {
     this._age = age;
   }
 
-  // Getter for name
   get name() {
     return this._name;
   }
 
-  // Getter for age
   get age() {
     return this._age;
   }
 
-  // Setter for age
   set age(value) {
     this._age = value;
   }
@@ -58,12 +55,6 @@ function testTeacher() {
   const teacher = new Teacher("Bob", 40);
   teacher.teach(); // Should log "Bob is teaching"
 }
-
-class Person {}
-
-class Student extends Person {}
-
-class Teacher extends Person {}
 
 // Do not change the code below this line
 window.Person = Person;
