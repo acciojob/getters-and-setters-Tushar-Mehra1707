@@ -1,66 +1,68 @@
+// script.js
+
 // Person Class
 class Person {
-  private _name: string;
-  private _age: number;
-
-  constructor(name: string, age: number) {
+  constructor(name, age) {
     this._name = name;
     this._age = age;
   }
 
   // Getter for name
-  get name(): string {
+  get name() {
     return this._name;
   }
 
-  // Setter for age
-  set age(age: number) {
-    this._age = age;
+  // Getter for age
+  get age() {
+    return this._age;
   }
 
-  // Getter for age
-  get age(): number {
-    return this._age;
+  // Setter for age
+  set age(age) {
+    this._age = age;
   }
 }
 
 // Student Class (Inherits from Person)
 class Student extends Person {
-  constructor(name: string, age: number) {
-    super(name, age); // Call the constructor of the Person class
+  constructor(name, age) {
+    super(name, age);  // Call the constructor of the parent class
   }
 
   // Method for student to study
-  study(): void {
+  study() {
     console.log(`${this.name} is studying`);
+    return `${this.name} is studying`;  // For display in the HTML
   }
 }
 
 // Teacher Class (Inherits from Person)
 class Teacher extends Person {
-  constructor(name: string, age: number) {
-    super(name, age); // Call the constructor of the Person class
+  constructor(name, age) {
+    super(name, age);  // Call the constructor of the parent class
   }
 
   // Method for teacher to teach
-  teach(): void {
+  teach() {
     console.log(`${this.name} is teaching`);
+    return `${this.name} is teaching`;  // For display in the HTML
   }
 }
 
-// Example usage:
+// Creating instances and testing the functionality:
 
-// Creating a Person instance
+// Create a Person instance
 const person = new Person("John", 25);
-console.log(person.name);  // Output: John
-person.age = 30;  // Using the setter to change the age
-console.log(person.age);  // Output: 30
+document.getElementById("personInfo").innerText = `Person: Name - ${person.name}, Age - ${person.age}`;
 
-// Creating a Student instance
+// Change the age using the setter
+person.age = 30;
+document.getElementById("personInfo").innerText += `, New Age - ${person.age}`;
+
+// Create a Student instance
 const student = new Student("Alice", 22);
-student.study();  // Output: Alice is studying
+document.getElementById("studentInfo").innerText = student.study();  // This will log Alice is studying
 
-// Creating a Teacher instance
+// Create a Teacher instance
 const teacher = new Teacher("Bob", 40);
-teacher.teach();  // Output: Bob is teaching
-
+document.getElementById("teacherInfo").innerText = teacher.teach();  // This will log Bob is teaching

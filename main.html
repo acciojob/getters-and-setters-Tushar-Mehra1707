@@ -2,17 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Getters and Setters Example</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Person, Student, and Teacher Example</h1>
-  <button onclick="testPerson()">Test Person</button>
-  <button onclick="testStudent()">Test Student</button>
-  <button onclick="testTeacher()">Test Teacher</button>
+  <div class="container">
+    <h1>Getters and Setters Example</h1>
 
-  <pre id="output"></pre>
+    <div id="personSection">
+      <h2>Person</h2>
+      <p id="personInfo"></p>
+    </div>
 
-  <script src="script.js"></script>
+    <div id="studentSection">
+      <h2>Student</h2>
+      <p id="studentInfo"></p>
+    </div>
+
+    <div id="teacherSection">
+      <h2>Teacher</h2>
+      <p id="teacherInfo"></p>
+    </div>
+
+    <script src="script.js"></script>
+  </div>
 </body>
 </html>
