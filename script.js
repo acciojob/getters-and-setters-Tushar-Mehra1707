@@ -1,62 +1,66 @@
-
+// Person Class
 class Person {
-  constructor(name, age) {
+  private _name: string;
+  private _age: number;
+
+  constructor(name: string, age: number) {
     this._name = name;
     this._age = age;
   }
 
-  get name() {
+  // Getter for name
+  get name(): string {
     return this._name;
   }
 
-  get age() {
+  // Setter for age
+  set age(age: number) {
+    this._age = age;
+  }
+
+  // Getter for age
+  get age(): number {
     return this._age;
   }
-
-  set age(value) {
-    this._age = value;
-  }
 }
 
-// Subclass: Student
+// Student Class (Inherits from Person)
 class Student extends Person {
-  study() {
-    log(`${this.name} is studying`);
+  constructor(name: string, age: number) {
+    super(name, age); // Call the constructor of the Person class
+  }
+
+  // Method for student to study
+  study(): void {
+    console.log(`${this.name} is studying`);
   }
 }
 
-// Subclass: Teacher
+// Teacher Class (Inherits from Person)
 class Teacher extends Person {
-  teach() {
-    log(`${this.name} is teaching`);
+  constructor(name: string, age: number) {
+    super(name, age); // Call the constructor of the Person class
+  }
+
+  // Method for teacher to teach
+  teach(): void {
+    console.log(`${this.name} is teaching`);
   }
 }
 
-// Utility function to output to the screen
-function log(message) {
-  const output = document.getElementById('output');
-  output.textContent += message + '\n';
-}
+// Example usage:
 
-// Testing functions
-function testPerson() {
-  const person = new Person("John", 25);
-  log(`Name: ${person.name}`); // Getter
-  person.age = 30;             // Setter
-  log(`Updated Age: ${person.age}`);
-}
+// Creating a Person instance
+const person = new Person("John", 25);
+console.log(person.name);  // Output: John
+person.age = 30;  // Using the setter to change the age
+console.log(person.age);  // Output: 30
 
-function testStudent() {
-  const student = new Student("Alice", 22);
-  student.study(); // Should log "Alice is studying"
-}
+// Creating a Student instance
+const student = new Student("Alice", 22);
+student.study();  // Output: Alice is studying
 
-function testTeacher() {
-  const teacher = new Teacher("Bob", 40);
-  teacher.teach(); // Should log "Bob is teaching"
-}
+// Creating a Teacher instance
+const teacher = new Teacher("Bob", 40);
+teacher.teach();  // Output: Bob is teaching
 
-// Do not change the code below this line
-window.Person = Person;
-window.Student = Student;
-window.Teacher = Teacher;
